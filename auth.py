@@ -41,7 +41,11 @@ def logout():
         return(f"The account {user} Logged out successfully!!")
         
 while True:
-    choice = int(input("Enter 1 for registration, 2 for login and 3 for exit and 4 for log out: "))
+    try:
+        choice = int(input("Enter 1 for registration, 2 for login and 3 for exit and 4 for log out: "))
+    except ValueError:
+        print("Please enter a valid number")
+        continue
     if(choice == 1):
         username = input("Username: ")
         password = input("Password: ")
@@ -52,8 +56,8 @@ while True:
         password = input("Password: ")
         print(login(username, password))
         
-    elif choice == 3:
+    elif (choice == 3):
         break
     
-    elif choice == 4:
+    elif (choice == 4):
         print(logout())
